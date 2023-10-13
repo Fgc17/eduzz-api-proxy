@@ -1,0 +1,20 @@
+version: "3.8"
+
+
+services:
+  app:
+    container_name: edduz-api-proxy_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    volumes:
+      - ../..:/workspaces:cached
+
+    command: sleep infinity
+
+    ports:
+      - 5000:5000
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
